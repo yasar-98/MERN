@@ -1,0 +1,124 @@
+1.
+
+
+// hoisting
+var hello;
+console.log(hello);
+var hello = 'world';
+
+//result
+"world"
+
+2.
+//hoisting
+var needle;
+function test(){
+var needle;    
+needle = 'magnet';
+console.log(needle);
+}
+needle = 'haystack';
+
+test();
+
+//result
+"magnet"
+
+3.
+//hoisting
+var brendan;
+function print(){
+    brendan = 'only okay';
+    console.log(brendan);
+}
+brendan = 'super cool';
+console.log(brendan);
+
+
+//result
+super cool
+
+4.
+//hoisting
+var food;
+function eat(){
+		var food;
+    food = 'half-chicken';
+    console.log(food);
+    food = 'gone';
+}
+food= 'chicken';
+console.log(food);
+eat();
+
+/result
+"chicken"
+"half-chicken"
+
+5. error
+
+6.
+//hoisting
+var genre;
+function rewind() {
+	  var genre; 
+    genre = "rock";
+    console.log(genre);
+    genre = "r&b";
+    console.log(genre);
+}
+console.log(genre);
+genre = "disco";
+rewind();
+
+console.log(genre);
+
+//result
+undefined
+"rock"
+"r&b"
+"disco"
+
+7.
+//hoisting
+var dojo ;
+function learn() {
+    var dojo;
+    dojo = "seattle";
+    console.log(dojo);
+     dojo = "burbank";
+    console.log(dojo);
+}
+dojo = "san jose";
+console.log(dojo);
+learn();
+
+//result
+
+"san jose"
+"seattle"
+"burbank"
+
+8.
+function makeDojo(name, students){
+    const dojo = {};
+    dojo.name = name;
+    dojo.students = students;
+    if(dojo.students > 50){
+        dojo.hiring = true;
+    }
+    else if(dojo.students <= 0){
+        dojo = "closed for now";
+    }
+    return dojo;
+}
+console.log(makeDojo("Chicago", 65));
+console.log(makeDojo("Berkeley", 0));
+
+//result
+{
+  hiring: true,
+  name: "Chicago",
+  students: 65
+}
+error

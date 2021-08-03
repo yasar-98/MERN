@@ -2,25 +2,18 @@ import React, { useState } from 'react'
 import axios from 'axios';
 export default (props) => {
     //keep track of what is being typed via useState hook
-    const [title, setTitle] = useState(""); 
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
+    const { initialTitle, initialPrice, initialDescription, onSubmitProp } = props;
+
+    const [title, setTitle] = useState(initialTitle); 
+    const [price, setPrice] = useState(initialPrice);
+    const [description, setDescription] = useState(initialDescription);
     //handler when the form is submitted
     const onSubmitHandler = e => {
         //prevent default behavior of the submit
         e.preventDefault();
         //make a post request to create a new person
-        axios.post('http://localhost:8000/api/createProduct', {
-            title,
-            price,
-            description
-        })
-            .then(res=>console.log(res))
-            .catch(err=>console.log(err))
-        setTitle("")
-        setPrice("")
-        setDescription("")
-        props.updateDom();
+        onSubmitProp({title, price, description});
+
     }
     //onChange to update firstName and lastName
     return (

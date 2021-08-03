@@ -1,13 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
-import ProductForm from './components/ProductForm';
-import axios from 'axios';
-import ProductList from './components/ProductList';
-import {useState, useEffect} from 'react'
 import { Router } from '@reach/router';
-import ProductDetail from './components/ProductDetail';
-import Main from './components/Main';
-import Update from './components/Update';
+import ProductDetail from './views/ProductDetail';
+import Main from './views/Main';
+import Update from './views/Update';
 
 function App() {
 
